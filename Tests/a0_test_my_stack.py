@@ -24,14 +24,12 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(initial_elem, my_stack.pop())
 
     def test_multiple_pushes_pops(self):
-        items = [i for i in range(10)]
+        items = list(range(10))
 
         for i in items:
             my_stack.push(i)
 
-        received_items = []
-        for _ in items:
-            received_items.append(my_stack.pop())
+        received_items = [my_stack.pop()for _ in items]
 
         self.assertEqual(list(reversed(items)), received_items)
 
